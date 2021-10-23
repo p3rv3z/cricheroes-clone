@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ball extends Model
+class Bowl extends Model
 {
     use HasFactory;
 
@@ -16,6 +16,6 @@ class Ball extends Model
 
     public function over()
     {
-        $this->belongsTo(Over::class);
+        return $this->belongsTo(Over::class);
     }
 }
