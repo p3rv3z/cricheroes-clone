@@ -1,18 +1,12 @@
 <?php
 
+use App\Http\Controllers\StatisticsController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::view('/', 'welcome');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// user, over params could be replace by slug
+Route::get('statistics/{user}/batting', [StatisticsController::class, 'batting']);
+Route::get('statistics/{user}/bowling', [StatisticsController::class, 'bowling']);
+Route::get('statistics/all-overs', [StatisticsController::class, 'allOvers']);
+Route::get('statistics/{over}/single-over', [StatisticsController::class, 'singleOver']);
